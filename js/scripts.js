@@ -1,42 +1,38 @@
 /* google maps */
-google.maps.visualRefresh = true;
-
-var map;
 function initialize() {
-	var geocoder = new google.maps.Geocoder();
-	var address = $('#map-input').text(); /* change the map-input to your address */
-	var mapOptions = {
-    	zoom: 15,
-    	mapTypeId: google.maps.MapTypeId.ROADMAP,
-     	scrollwheel: false
-	};
-	map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+	var var_location = new google.maps.LatLng(42.9633333,-85.6680556);
 	
-  	if (geocoder) {
-      geocoder.geocode( { 'address': address}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
-          map.setCenter(results[0].geometry.location);
+	roadAtlasStyles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "landscape", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road", "stylers": [ { "visibility": "simplified" }, { "color": "#102E14" } ] },{ "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] },{ "elementType": "labels.text", "stylers": [ { "visibility": "off" } ] },{ } ]
+	
+	var var_mapoptions = {
+	  scrollwheel: false,
+	  draggable: false,
+	  center: var_location,
+	  disableDefaultUI: true,
+	  zoom: 12
+	};
 
-            var infowindow = new google.maps.InfoWindow(
-                {
-                  content: address,
-                  map: map,
-                  position: results[0].geometry.location,
-                });
+	var var_map = new google.maps.Map(document.getElementById("map-container"),
+		var_mapoptions);
+	
+	var styledMapOptions = {
+                
+            };
 
-            var marker = new google.maps.Marker({
-                position: results[0].geometry.location,
-                map: map, 
-                title:address
-            }); 
+	var usRoadMapType = new google.maps.StyledMapType(
+		roadAtlasStyles, styledMapOptions);
 
-          } else {
-          	alert("No results found");
-          }
-        }
-      });
-	}
+	var_map.mapTypes.set('usroadatlas', usRoadMapType);
+	var_map.setMapTypeId('usroadatlas');
+	
+	var mapText = document.createElement('button');
+	mapText.className = "btn btn-info btn-lg";
+	mapText.innerHTML = 'Located in West Michigan';
+	var mapTextA = document.createElement('a');
+	mapTextA.setAttribute('href', "#about");
+	mapTextA.appendChild(mapText);
+	var_map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(mapTextA);
+ 
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
