@@ -13,7 +13,7 @@ body, h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 }
 
-.intro-header {
+.intro-header-main {
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
 	color: #f8f8f8;
@@ -22,14 +22,13 @@ body, h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 }
 
-.intro-header-blog {
-  padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-	padding-bottom: 50px;
+.intro-header-other {
+  padding-top: 25px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 }
 
 .intro-message {
 	position: relative;
-	padding-bottom: 10%;
+	padding-bottom: 3%;
 }
 
 .intro-message > h1 {
