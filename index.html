@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en" ng-app>
 
 <head>
     <meta charset="utf-8">
@@ -8,7 +8,6 @@
     <meta name="author" content="">
 
     <title>Tim Jaroch</title>
-
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
@@ -24,47 +23,28 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="http://timjaroch.com">Tim Jaroch</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.html">About</a></li>
-					<li><a href="portfolioItem.html">Portfolio</a></li>
-					<li><a href="blog.html">Blog</a></li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-	<!-- End Navigation -->
-
-<!-- Header -->
+    <div ng-include="'partials/navigation.html'"></div>
+    <!-- End Navigation -->
+    <!-- Header -->
     <div class="intro-header-main">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>Tim Jaroch</h1>
-                        <h2><P>Software Developer</P><P text-shadow:2px 2px #C0C0C0;>Business Owner</P><P text-shadow:2px 2px #C0C0C0;>Entrepenuer</P></h2>
+                        <h2>Software Developer</h2>
+                        <h2>Business Owner</h2>
+                        <h2>Entrepenuer</h2>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
-                            <li><a href="https://twitter.com/TimJaroch" class="btn btn-success btn-lg" target="_blank"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                            <li>
+                                <a href="https://twitter.com/TimJaroch" class="btn btn-success btn-lg" target="_blank"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                             </li>
-                            <li><a href="https://github.com/JarochT" class="btn btn-success btn-lg" target="_blank"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                            <li>
+                                <a href="https://github.com/JarochT" class="btn btn-success btn-lg" target="_blank"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                             </li>
-                            <li><a href="https://www.linkedin.com/in/timjaroch/" class="btn btn-success btn-lg target="_blank"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                            <li>
+                                <a href="https://www.linkedin.com/in/timjaroch/" class="btn btn-success btn-lg" target="_blank"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
                             </li>
                         </ul>
                     </div><!--/.intro-message -->
@@ -75,14 +55,16 @@
     <!-- End Header -->
 
 
-	<div class="content-section-a">
+    <div class="content-section-a">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">My Hobbies:
-					<br>I Tinker...</h2>
+                    <h2 class="section-heading">
+                        My Hobbies:
+                        <br>I Tinker...
+                    </h2>
                     <p class="lead">If it runs on batteries, has a screen, uses a tx/radio, or is just plain "techy"; I like to play with it. Every cell phone I've bought since my first smart phone has been modded, hacked, and probably bricked. I build my own computers, I build my families computers, I fix everyones computers. Compilers to Assembly, Soldering to Welding, Building to Racing, I've tried it.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
@@ -93,7 +75,7 @@
     </div>
     <!-- /.content-section-a -->
 
-	<div class="content-section-b">
+    <div class="content-section-b">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
@@ -108,7 +90,7 @@
             </div>
         </div>
     </div>
-				
+
     <div class="content-section-a">
         <div class="container">
             <div class="row">
@@ -116,7 +98,7 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Guitar</h2>
-                    <p class="lead">I've been known to play from time to time. I started private lessons around age 12, I guess I thought it would help with chicks or something. I was classically trained, and then studied lead guitar. I own an accoustic <B>Takamine</B> and a <B>Schecter</B> electric. Unfortunately, I only make time to play them when my daughter asks me to.</p>
+                    <p class="lead">I've been known to play from time to time. I started private lessons around age 12, I guess I thought it would help with chicks or something. I was classically trained, and then studied lead guitar. I own an accoustic <b>Takamine</b> and a <b>Schecter</b> electric. Unfortunately, I only make time to play them when my daughter asks me to.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <img class="img-responsive" src="img/Takamine_Head.jpg" alt="">
@@ -125,7 +107,7 @@
         </div>
     </div>
 
-	<div class="content-section-b">
+    <div class="content-section-b">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
@@ -133,7 +115,7 @@
                     <div class="clearfix"></div>
                     <h2 class="section-heading">8Bit Element</h2>
                     <p class="lead">My own little software company. We do mostly web-dev, of which I do the administrative stuff.</p>
-					<p class="lead">The team at <a href="http://8bitelement.com">8Bit Element</a> also has experience with custom apps in Windows, Mac, and Linux as well as Android and iOS. If you have any questions hop on over to our business site and drop us a line!</p>		
+                    <p class="lead">The team at <a href="http://8bitelement.com">8Bit Element</a> also has experience with custom apps in Windows, Mac, and Linux as well as Android and iOS. If you have any questions hop on over to our business site and drop us a line!</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
                     <a href="http://8bitelement.com" target="_blank"><img class="img-responsive" src="img/8be-logo.png" alt=""></a>
@@ -141,42 +123,22 @@
             </div>
         </div>
     </div>
-	
-	
-	
-	<!-- Google Map -->
-	<div id="map-container"></div>
-	<!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-inline">
-                        <li><a href="#About">About</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li><a href="#Apps">Apps</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li><a href="#Blog">Blog</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li><a href="#Contact">Contact</a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Tim Jaroch 2014. All Rights Reserved</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-	<!-- End Footer -->
 
+
+
+    <!-- Google Map -->
+    <div id="map-container"></div>
+    <!-- Footer -->
+    <footer ng-include="'partials/footer.html'">
+
+    </footer>
+    <!-- End Footer -->
     <!-- JavaScript -->
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.js"></script>
-	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-	<script src="js/scripts.js"></script>
-
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
 </body>
 
 </html>
