@@ -1,0 +1,19 @@
+﻿{
+    "entries": [
+        {
+            "title": "Portfolio #1",
+            "subTitle": "Sub Title Text One",
+            "description": "Vee vant zat money, Lebowski. Dolor sit amet, consectetur adipiscing elit praesent. A way out west there was a fella, fella I want to tell you about, fella by the name of Jeff Lebowski. At least, that was the handle his lovin' parents gave him, but he never had much use for it himself. This Lebowski, he called himself the Dude. Now, Dude, that's a name no one would self-apply where I come from. But then, there was a lot about the Dude that didn't make a whole lot of sense to me. And a lot about where he lived, likewise. But then again, maybe that's why I found the place s'durned innarestin'. Ac magna justo pellentesque ac lectus quis elit blandit fringilla a ut turpis praesent. Nice marmot. Felis ligula, malesuada suscipit. Laundry, Dude. Malesuada non, ultrices non urna sed orci ipsum, placerat id condimentum. Ever hear of the Seattle Seven? Rutrum, rhoncus ac lorem aliquam. Please see him, Jeffrey. He's a good man. And thorough. Placerat posuere neque, at dignissim magna ullamcorper. This compulsive is taking my father for the proverbial ride. In aliquam sagittis massa ac tortor ultrices faucibus curabitur eu mi sapien. No ma'am, I didn't mean to give the impression that we're Ut ultricies ipsum morbi eget risus nulla nullam. My name's Da Fino! I'm a private snoop! Like you, man! Vel nisi enim, vel auctor ante morbi id. Vee could do things you only dreamed of, Lebowski. Urna vel felis lacinia placerat vestibulum turpis nulla, viverra nec volutpat ac.",
+            "image": "content/portfolio/img/dark-scuba.jpg",
+            "related": [ "1" ]
+        },
+        {
+            "title": "Portfolio #2",
+            "subTitle": "Sub Title Text Two",
+            "description": "Vee vant zat money, Lebowski. Dolor sit amet, consectetur adipiscing elit praesent. A way out west there was a fella, fella I want to tell you about, fella by the name of Jeff Lebowski. At least, that was the handle his lovin' parents gave him, but he never had much use for it himself. This Lebowski, he called himself the Dude. Now, Dude, that's a name no one would self-apply where I come from. But then, there was a lot about the Dude that didn't make a whole lot of sense to me. And a lot about where he lived, likewise. But then again, maybe that's why I found the place s'durned innarestin'. Ac magna justo pellentesque ac lectus quis elit blandit fringilla a ut turpis praesent. Nice marmot. Felis ligula, malesuada suscipit. Laundry, Dude. Malesuada non, ultrices non urna sed orci ipsum, placerat id condimentum. Ever hear of the Seattle Seven? Rutrum, rhoncus ac lorem aliquam. Please see him, Jeffrey. He's a good man. And thorough. Placerat posuere neque, at dignissim magna ullamcorper. This compulsive is taking my father for the proverbial ride. In aliquam sagittis massa ac tortor ultrices faucibus curabitur eu mi sapien. No ma'am, I didn't mean to give the impression that we're Ut ultricies ipsum morbi eget risus nulla nullam. My name's Da Fino! I'm a private snoop! Like you, man! Vel nisi enim, vel auctor ante morbi id. Vee could do things you only dreamed of, Lebowski. Urna vel felis lacinia placerat vestibulum turpis nulla, viverra nec volutpat ac.",
+            "image": "content/portfolio/img/cloudy-jungle.jpg",
+            "related": [ "0" ]
+        }
+    ],
+    "defaultImage": "http://placehold.it/800x600&text=Image+not+found!!+That%27s+weird+because+this+is+a+static+site!!"
+}

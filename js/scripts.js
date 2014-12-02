@@ -5,8 +5,8 @@ function initialize() {
 	var roadAtlasStyles = [ { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },{ "featureType": "landscape", "stylers": [ { "visibility": "off" } ] },{ "featureType": "road", "stylers": [ { "visibility": "simplified" }, { "color": "#102E14" } ] },{ "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] },{ "elementType": "labels.text", "stylers": [ { "visibility": "off" } ] },{ } ];
 	
 	var varMapoptions = {
-	  scrollwheel: false,
-	  draggable: false,
+	  scrollwheel: true,
+	  draggable: true,
 	  center: varLocation,
 	  disableDefaultUI: true,
 	  zoom: 12
@@ -26,7 +26,7 @@ function initialize() {
 	mapText.className = "btn btn-info btn-lg";
 	mapText.innerHTML = 'Located in West Michigan';
 	var mapTextA = document.createElement('a');
-	mapTextA.setAttribute('href', "#about");
+	mapTextA.setAttribute('href', "contact.html");
 	mapTextA.appendChild(mapText);
 	varMap.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(mapTextA);
  
