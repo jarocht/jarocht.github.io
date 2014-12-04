@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/index.css">
-
+    <link rel="stylesheet" href="css/portfolio.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" />
 </head>
 
 <body ng-controller="portfolioCtrl">
@@ -41,7 +43,11 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-6">
-                <img class="img-responsive center-block" src="{{getImageUrl()}}" alt="">
+                <div class="img-container">
+                    <img class="img-responsive" ng-src="{{getImageUrl()}}" alt=""/>
+                    <i class="fa fa-arrow-circle-o-left fa-5x img-left-button" ng-click="previous()"></i>
+                    <i class="fa fa-arrow-circle-o-right fa-5x img-right-button" ng-click="next()"></i>
+                </div>
             </div>
             <div class="col-md-4">
                 <h3>Project Description</h3>
@@ -53,9 +59,6 @@
                     <li>Consectetur</li>
                     <li>Adipiscing Elit</li>
                 </ul>
-                <h3>Navigation</h3>
-                <button type="button" class="btn btn-primary" ng-click="previous()">Previous</button>
-                <button type="button" class="btn btn-primary" ng-click="next()">Next</button>
             </div>
         </div>
     </div>
@@ -69,7 +72,7 @@
             </div>
 
             <div class="col-sm-3 col-xs-6" ng-repeat="x in Selected.related">
-                <img class="img-responsive portfolio-item" src="{{getRecord(x).image}}" alt="http://placehold.it/500x300" ng-click="navTo(x)">
+                <img class="img-responsive" src="{{getRecord(x).image}}" alt="http://placehold.it/500x300" ng-click="navTo(x)">
             </div>
 
         </div>

@@ -50,6 +50,7 @@ application.controller('portfolioCtrl', function ($scope, $http, $window, $locat
     };
 
     function setRecord(index, scroll) {
+        index = parseInt(index);
         if (index > -1 && index < $scope.Records["entries"].length) {
             $scope.index = index;
             $location.hash(index);
