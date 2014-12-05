@@ -1,0 +1,20 @@
+﻿.colorScheme.black {
+    color: black;
+}
+
+.colorScheme.blue {
+    color: blue;
+}
+
+.colorScheme.beige {
+    color: #c0c0c0;
+}
+
+.colorScheme.whitesmoke {
+    color: whitesmoke;
+}
+
+.colorScheme.clickable:hover {
+    cursor: pointer;
+    color: #31B0D5;
+}

@@ -1,18 +1,19 @@
-﻿var application = angular.module('application', []);
+﻿var app = angular.module('app', []);
 
-application.config(function ($locationProvider) {
-    console.log("DONE THIS");
+app.config(function ($locationProvider) {
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
     });
 });
 
-application.controller('portfolioCtrl', function ($scope, $http, $window, $location) {
+app.controller('portfolioCtrl', function ($scope, $http, $window, $location) {
     //init vars
     $scope.index = 0;
     $scope.Selected = {};
     $scope.Records = {};
+    $scope.ShowImgLeftNavArrow = false;
+    $scope.ShowImgRightNavArrow = false;
 
     $http.get('./content/portfolio/data.json').success(function (data) {
         $scope.Records = data;
@@ -39,8 +40,15 @@ application.controller('portfolioCtrl', function ($scope, $http, $window, $locat
         return null;
     };
 
-    $scope.isImageAvailable = function() {
-        return false;
+    $scope.ShowImgNavArrows = function(bool) {
+        if (!bool) {
+            $scope.ShowImgLeftNavArrow = bool;
+            $scope.ShowImgRightNavArrow = bool;
+        }
+        if ($scope.index > 0)
+            $scope.ShowImgLeftNavArrow = bool;
+        if ($scope.index < $scope.Records["entries"].length - 1)
+            $scope.ShowImgRightNavArrow = bool;
     };
 
     $scope.getImageUrl = function () {
@@ -58,6 +66,8 @@ application.controller('portfolioCtrl', function ($scope, $http, $window, $locat
             if (scroll) {
                 $window.scrollTo(0, 0);
             }
+            $scope.ShowImgLeftNavArrow = ($scope.index > 0);
+            $scope.ShowImgRightNavArrow = ($scope.index < $scope.Records["entries"].length - 1);
         }
     };
 });
