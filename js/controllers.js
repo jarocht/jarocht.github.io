@@ -7,10 +7,10 @@ app.controller('portfolioCtrl', function ($scope, $window, $location, contentFac
     var promise = contentFactory.getPortfolioData();
     promise.then(
         function(payload) {
-            $scope.index = 0;
             $scope.entries = payload.data['entries'];
             $scope.defaultImageUrl = payload.data['defaultImageUrl'];
-            $scope.selected = $scope.entries[0];
+            if (setSelected($location.hash()) == -1)
+                setSelected(0);
             $scope.ShowImgLeftNavArrow = false;
             $scope.ShowImgRightNavArrow = false;
         });
@@ -59,6 +59,7 @@ app.controller('portfolioCtrl', function ($scope, $window, $location, contentFac
         if (index > -1 && index < $scope.entries.length) {
             $scope.selected = $scope.entries[index];
             $scope.index = index;
+            $location.hash(index);
             return index;
         }
         return -1;
