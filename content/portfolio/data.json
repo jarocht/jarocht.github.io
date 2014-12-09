@@ -22,5 +22,5 @@
             "related": [ 0, 1 ]
         }
     ],
-    "defaultImage": "http://placehold.it/800x600&text=Image+not+found!!+That%27s+weird+because+this+is+a+static+site!!"
+    "defaultImageUrl": "http://placehold.it/800x600&text=Image+not+found!!+That%27s+weird+because+this+is+a+static+site!!"
 }

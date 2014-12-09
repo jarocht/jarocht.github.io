@@ -30,8 +30,8 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-6">
                     <div class="intro-message">
-                        <h3 class="page-header">{{Selected.title}}</h3>
-                        <h4>{{Selected.subTitle}}</h4>
+                        <h3 class="page-header">{{selected.title}}</h3>
+                        <h4>{{selected.subTitle}}</h4>
                     </div>
                 </div>
                 <div class="col-md-4"></div>
@@ -52,7 +52,7 @@
             </div>
             <div class="col-md-4">
                 <h3>Project Description</h3>
-                <p>{{Selected.description}}</p>
+                <p>{{selected.description}}</p>
                 <h3>Project Details</h3>
                 <ul>
                     <li>Lorem Ipsum</li>
@@ -72,7 +72,7 @@
                 <h3 class="page-header">Related</h3>
             </div>
 
-            <div class="col-sm-3 col-xs-6 img-container hover-pointer" ng-repeat="x in Selected.related" ng-click="navTo(x)" ng-mouseenter="ShowRelatedImgText = true" ng-mouseleave="ShowRelatedImgText = false">
+            <div class="col-sm-3 col-xs-6 img-container hover-pointer" ng-repeat="x in selected.related" ng-click="navTo(x)" ng-mouseenter="ShowRelatedImgText = true" ng-mouseleave="ShowRelatedImgText = false">
                 <img class="img-responsive" src="{{getRecord(x).image}}" alt="">
                 <h2 class="img-text colorScheme clickable whitesmoke" ng-show="ShowRelatedImgText">{{getRecord(x).title}}</h2>
             </div>
@@ -94,8 +94,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/googleMapScript.js"></script>
+    <script src="js/modules.js"></script>
     <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
 </body>
 
 </html>
