@@ -27,9 +27,9 @@ function initialize() {
 	mapText.innerHTML = 'Located in West Michigan';
 	var mapTextA = document.createElement('a');
 	mapTextA.setAttribute('href', "contact.html");
+	mapTextA.setAttribute('target', "_self");
 	mapTextA.appendChild(mapText);
 	varMap.controls[window.google.maps.ControlPosition.BOTTOM_CENTER].push(mapTextA);
- 
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 /* end google maps */

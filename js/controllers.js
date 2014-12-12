@@ -132,3 +132,9 @@ app.controller('blogCtrl', function ($scope, $window, $location, contentFactory)
         }
     };
 });
+
+app.controller('blogPostCtrl', function ($scope, $window, $location, contentFactory) {
+    contentFactory.getBlogPost(1).then(function(data) {
+        $scope.post = data.post;
+    });
+});
