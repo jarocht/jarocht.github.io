@@ -7,5 +7,9 @@ app.factory('contentFactory', function ($http) {
         return $http.get('./content/portfolio/data.json');
     };
 
+    service.getBlogData = function() {
+        return $http.get('./content/blog/data.json');
+    };
+
     return service;
 });
