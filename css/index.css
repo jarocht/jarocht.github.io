@@ -1,4 +1,4 @@
-body, html {
+﻿body, html {
 	height: 100%;
 	width: 100%;
 }
@@ -29,6 +29,19 @@ body, h1, h2, h3, h4, h5, h6 {
 .intro-message {
 	position: relative;
 	padding-bottom: 3%;
+}
+
+.intro-message > h1 {
+    margin: 0;
+	font-size: 5em;
+	/*text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);*/
+    text-shadow: 5px 2px 2px #323232;
+    text-shadow: 5px 2px 2px rgba(50, 50, 50, 1);
+}
+
+.intro-message > h2 {
+    text-shadow: 3px 2px 2px #323232;
+    text-shadow: 3px 2px 2px rgba(50, 50, 50, 1);
 }
 
 .intro-divider {
@@ -156,8 +169,4 @@ footer {
 
 p.copyright {
 	margin: 15px 0 0;
-}
-
-.hover-pointer:hover {
-    cursor: pointer;
 }

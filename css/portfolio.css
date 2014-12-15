@@ -36,7 +36,3 @@
     transform: translate(-50%, -50%);
     color: whitesmoke;
 }
-
-.hover-pointer:hover {
-    cursor: pointer;
-}

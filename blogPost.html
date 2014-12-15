@@ -10,10 +10,10 @@
     <title>Tim Jaroch</title>
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/default.css"/>
     <link rel="stylesheet" href="css/blog.css" />
+    <link rel="stylesheet" href="css/blogPost.css"/>
 
 </head>
 
@@ -29,8 +29,8 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="intro-message">
-                        <h3 class="page-header">{{post.title}}</h3>
-                        <h4>{{post.description}}</h4>
+                        <h1 class="page-header">Jaroch Blog</h1>
+                        <h2>A Blog about technology, family, and whatever else comes to mind.</h2>
                     </div>
                 </div>
                 <div class="col-md-2"></div>
@@ -38,6 +38,39 @@
         </div>
     </div>
     <!-- End Header -->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div>
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.date}} by <a ng-bind-html="post.author"></a></p>
+                    <div ng-bind-html="post.body"></div>
+                </div>
+                <nav>
+                    <ul class="pager">
+                        <li><a class="hover-pointer" ng-click="previousPost()">Previous</a></li>
+                        <li><a class="hover-pointer" ng-click="nextPost()">Next</a></li>
+                    </ul>
+                </nav>
+            </div><!-- /.blog-main -->
+
+            <div class="col-sm-3 col-sm-offset-1">
+                <div class="sidebar-module sidebar-module-inset">
+                    <h4>About</h4>
+                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                </div>
+                <div class="sidebar-module">
+                    <h4>Related</h4>
+                    <ol class="list-unstyled">
+                        <li ng-repeat="x in post.related"><a ng-href="#{{x}}" target="_self">{{getPost(x).title}}</a></li>
+                    </ol>
+                </div>
+            </div><!-- /.blog-sidebar -->
+
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
 
     <hr>
     <!-- End Pagination -->
@@ -49,11 +82,11 @@
 
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-sanitize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="js/googleMapScript.js"></script>
-    <script src="js/modules.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
 </body>

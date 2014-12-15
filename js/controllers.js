@@ -1,4 +1,10 @@
-﻿var app = angular.module('app');
+﻿var app = angular.module('app', ['ngSanitize'])
+.config(function ($locationProvider) {
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
+});
 
 app.controller('portfolioCtrl', function ($scope, $window, $location, contentFactory) {
     //init vars
@@ -122,19 +128,54 @@ app.controller('blogCtrl', function ($scope, $window, $location, contentFactory)
         $scope.numPages = Math.ceil($scope.posts.length / $scope.postsPerPage);
         if ($scope.numPages < 1)
             $scope.numPages = 1;
-        //console.log($scope.postsPerPage);
-        //console.log($scope.posts.length);
         for (var i = 0; i < $scope.numPages; i++)
             $scope.pages.push([]);
         for (i = 0; i < $scope.posts.length; i++) {
-            //console.log("(" + Math.floor(i / $scope.postsPerPage) + "," + (i % $scope.postsPerPage) + ")");
-            $scope.pages[Math.floor(i / $scope.postsPerPage)].push($scope.posts[i]);
+            $scope.pages[Math.floor(i / $scope.postsPerPage)].push({ 'content': $scope.posts[i], 'index' : i });
         }
     };
 });
 
 app.controller('blogPostCtrl', function ($scope, $window, $location, contentFactory) {
-    contentFactory.getBlogPost(1).then(function(data) {
-        $scope.post = data.post;
+    $scope.posts = {};
+    $scope.post = {};
+    var promise = contentFactory.getBlogData();
+    promise.then(
+        function (payload) {
+            $scope.posts = payload.data['posts'];
+            $scope.post = $scope.posts[$scope.index];
+            $scope.defaultImageUrl = payload.data['defaultImageUrl'];
+            setSelectedPage($location.hash());
+        });
+
+    $scope.previousPost = function() {
+        setSelectedPage($scope.index - 1);
+    };
+
+    $scope.nextPost = function() {
+        setSelectedPage($scope.index + 1);
+    }
+
+    $scope.getPost = function (index) {
+        if (index > -1 && index < $scope.posts.length) {
+            return $scope.posts[index];
+        }
+        return $scope.posts[0];
+    };
+
+    $scope.$on('$locationChangeSuccess', function () {
+        setSelectedPage($location.hash());
     });
+
+    function setSelectedPage(index) {
+        index = (index == parseInt(index, 10)) ? parseInt(index) : 0;
+        if (index > -1 && index < $scope.posts.length) {
+            $scope.index = index;
+            $scope.post = $scope.posts[index];
+            $location.hash(index);
+            $window.scrollTo(0, 0);
+            return index;
+        }
+        return -1;
+    };
 });

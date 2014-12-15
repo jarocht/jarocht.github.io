@@ -10,7 +10,6 @@
     <title>Tim Jaroch</title>
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/blog.css"/>
@@ -29,8 +28,8 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="intro-message">
-                        <h3 class="page-header">Jaroch Blog</h3>
-                        <h4>A Blog about technology, family, and whatever else comes to mind.</h4>
+                        <h1 class="page-header">Jaroch Blog</h1>
+                        <h2>A Blog about technology, family, and whatever else comes to mind.</h2>
                     </div>
                 </div>
                 <div class="col-md-2"></div>
@@ -45,9 +44,9 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-4 blog-item" ng-repeat="post in pages[selectedPage]">
-                        <a href="{{$index}}"><img class="img-responsive img-blog-item" ng-src="{{post.image}}"></a>
-                        <h3><a href="{{$index}}">{{post.title}}</a></h3>
-                        <p>{{post.description}}</p>
+                        <a ng-href="blogPost.html#{{post.index}}" target="_self"><img class="img-responsive img-blog-item" ng-src="{{post.content.image}}"></a>
+                        <h3><a ng-href="blogPost.html#{{post.index}}" target="_self">{{post.content.title}}</a></h3>
+                        <p>{{post.content.description}}</p>
                     </div>
                 </div>
             </div>
@@ -98,11 +97,11 @@
 
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-sanitize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="js/googleMapScript.js"></script>
-    <script src="js/modules.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
 
