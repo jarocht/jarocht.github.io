@@ -11,6 +11,7 @@
 
     <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="css/default.css"/>
     <link rel="stylesheet" href="css/blog.css" />
     <link rel="stylesheet" href="css/blogPost.css"/>
@@ -49,10 +50,11 @@
                 </div>
                 <nav>
                     <ul class="pager">
-                        <li><a class="hover-pointer" ng-click="previousPost()">Previous</a></li>
-                        <li><a class="hover-pointer" ng-click="nextPost()">Next</a></li>
+                        <li><a class="hover-pointer" ng-click="previousPost()" ng-show="showPrevButton">Prev</a></li>
+                        <li><a class="hover-pointer" ng-click="nextPost()" ng-show="showNextButton">Next</a></li>
                     </ul>
                 </nav>
+                <p class="copyright text-muted small text-center">Copyright &copy; Tim Jaroch 2015. All Rights Reserved</p>
             </div><!-- /.blog-main -->
 
             <div class="col-sm-3 col-sm-offset-1">
@@ -72,21 +74,11 @@
 
     </div><!-- /.container -->
 
-    <hr>
-    <!-- End Pagination -->
-    <!-- Google Map -->
-    <div id="map-container"></div>
-
-    <!-- Footer -->
-    <footer ng-include="'partials/footer.html'"></footer>
-
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-sanitize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script src="js/googleMapScript.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
 </body>

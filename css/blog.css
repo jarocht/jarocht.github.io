@@ -11,3 +11,7 @@
 .pagination :hover {
     cursor: pointer;
 }
+
+.pagination-row {
+    margin-bottom: 20px;
+}

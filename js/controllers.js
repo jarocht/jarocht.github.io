@@ -32,7 +32,7 @@ app.controller('portfolioCtrl', function ($scope, $window, $location, contentFac
     };
     $scope.navTo = function (index) {
         setSelected(index);
-        scrollToTop();
+        scrollToTop($window);
     };
     $scope.getRecord = function(index) {
         if (index > -1 && index < $scope.entries.length) {
@@ -52,10 +52,6 @@ app.controller('portfolioCtrl', function ($scope, $window, $location, contentFac
         return $scope.selected.image;
     };
 
-    function scrollToTop() {
-        $window.scrollTo(0, 0);
-    }
-
     function updateImageArrows() {
         $scope.ShowImgLeftNavArrow = ($scope.index > 0);
         $scope.ShowImgRightNavArrow = ($scope.index < $scope.entries.length - 1);
@@ -74,7 +70,7 @@ app.controller('portfolioCtrl', function ($scope, $window, $location, contentFac
 });
 
 app.controller('blogCtrl', function ($scope, $window, $location, contentFactory) {
-    $scope.postsPerPage = 3;
+    $scope.postsPerPage = 9;
     $scope.numPages = 1;
     $scope.selectedPage = 0;
     $scope.pages = [];
@@ -104,13 +100,9 @@ app.controller('blogCtrl', function ($scope, $window, $location, contentFactory)
     $scope.setPostsPerPage = function(num) {
         $scope.postsPerPage = parseInt(num);
         provisionPages();
-        scrollToTop();
+        scrollToTop($window);
         if($scope.selectedPage > $scope.numPages - 1)
             setSelectedPage($scope.numPages - 1);
-    }
-
-    function scrollToTop() {
-        $window.scrollTo(0, 0);
     }
 
     function setSelectedPage(index) {
@@ -171,11 +163,29 @@ app.controller('blogPostCtrl', function ($scope, $window, $location, contentFact
         index = (index == parseInt(index, 10)) ? parseInt(index) : 0;
         if (index > -1 && index < $scope.posts.length) {
             $scope.index = index;
+            $scope.showNextButton = (index < $scope.posts.length - 1);
+            $scope.showPrevButton = (index > 0);
             $scope.post = $scope.posts[index];
             $location.hash(index);
-            $window.scrollTo(0, 0);
+            scrollToTop($window);
             return index;
         }
         return -1;
     };
 });
+
+app.controller('contactCtrl', function($scope, $window, $location) {
+    $scope.contactImageUrl = 'img/headshot_round_color.png';
+
+    $scope.showAltContactImage = function(bool) {
+        if (bool)
+            $scope.contactImageUrl = 'img/headshot_round_bw.png';
+        else {
+            $scope.contactImageUrl = 'img/headshot_round_color.png';
+        }
+    };
+});
+
+function scrollToTop(window) {
+    window.scrollTo(0, 0);
+}
