@@ -1,0 +1,22 @@
+﻿.stacked {
+    padding-bottom: 4%;    
+}
+
+img.img-responsive {
+    margin: 0 auto;
+}
+
+my-phone:after {
+    content: attr(data-NXX);
+}
+my-phone:before {
+    content: attr(data-NPA);
+}
+
+my-email:after {
+    content: attr(data-domain);
+}
+
+my-email:before {
+    content: attr(data-user) "\0040";
+}
