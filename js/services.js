@@ -1,5 +1,6 @@
 ﻿var app = angular.module('app');
 
+/*
 app.factory('contentFactory', function ($http, $q) {
     var service = {};
 
@@ -30,4 +31,4 @@ app.factory('contentFactory', function ($http, $q) {
         return deferred.promise;
     }
     return service;
-});
+});*/

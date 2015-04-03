@@ -1,0 +1,61 @@
+﻿<div>
+    <div class="intro-header-other">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="intro-message">
+                        <h1 class="page-header">{{title}}</h1>
+                        <h2>{{subTitle}}</h2>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+    <!-- End Header -->
+    <!-- Projects Row -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="row">
+                    <div class="col-md-4 blog-item" ng-repeat="post in getPostList()">
+                        <a ui-sref="blogPost"><img class="img-responsive img-blog-item" ng-src="{{post.image}}" /></a>
+                        <h3><a ng-href="blogPost.html#{{post.index}}" target="_self">{{post.content.title}}</a></h3>
+                        <p>{{post.content.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- End Projects Row -->
+    <!-- Pagination -->
+    <div class="container-fluid">
+        <div class="row text-center">
+            Select Page
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li ng-show="numPages > 1" ng-click="setSelectedPage(selectedPage - 1)">
+                        <a>&laquo;</a>
+                    </li>
+                    <li ng-repeat="page in pages" ng-class="{active: $index == selectedPage}">
+                        <a ng-click="setSelectedPage($index)">{{$index + 1}}</a>
+                    </li>
+                    <li ng-show="numPages > 1" ng-click="setSelectedPage(selectedPage + 1)">
+                        <a>&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row text-center pagination-row">
+            Posts per page
+            <div class="col-lg-12">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default" ng-class="{active: 3 == postsPerPage}" ng-click="setPostsPerPage(3)">3</button>
+                    <button type="button" class="btn btn-default" ng-class="{active: 9 == postsPerPage}" ng-click="setPostsPerPage(9)">9</button>
+                    <button type="button" class="btn btn-default" ng-class="{active: 27 == postsPerPage}" ng-click="setPostsPerPage(27)">27</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

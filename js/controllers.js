@@ -1,11 +1,138 @@
-﻿var app = angular.module('app', ['ngSanitize'])
-.config(function ($locationProvider) {
-    $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-    });
+﻿var app = angular.module('app');
+var baseUrl = "https://timjaroch.firebaseio.com/";
+
+app.controller('aboutCtrl', function($scope) {
 });
 
+app.controller('contactCtrl', function ($scope, $location) {
+    $scope.contactImageUrl = 'img/headshot_round_color.png';
+
+    $scope.showAltContactImage = function (bool) {
+        if (bool)
+            $scope.contactImageUrl = 'img/headshot_round_bw.png';
+        else {
+            $scope.contactImageUrl = 'img/headshot_round_color.png';
+        }
+    };
+    //load google map
+    initialize();
+});
+
+app.controller('portfolioCtrl', function($scope) {
+
+});
+
+app.controller('blogCtrl', function($scope, $firebase) {
+    var ref = new window.Firebase(baseUrl + "blog");
+    var blogPosts = $firebase(ref).$asArray();
+    blogPosts.$loaded().then(function () {
+        console.log(blogPosts[blogPosts.length - 1].$id);
+        $scope.blogPosts = blogPosts;
+        $scope.post = blogPosts[blogPosts.length - 1];
+    });
+    $scope.id = 5;
+});
+
+app.controller("blogPostCtrl", function ($scope, $firebase, $stateParams) {
+    console.log($stateParams);
+});
+
+app.controller("contentNavigatorCtrl", function ($scope, $firebase, $stateParams, $state) {
+    console.log($stateParams.type);
+    if ($stateParams.type != "portfolio" && $stateParams.type != "blog") {
+        $state.go("about");
+    }
+    $scope.title = "Jaroch XYZ";
+    $scope.subTitle = "Jaroch Subtitle Text";
+
+    function provisionPages() {
+        $scope.pages = [];
+        for (var i = 0; i < $scope.numPages; i++)
+            $scope.pages.push([]);
+        for (i = 0; i < $scope.postCount; i++) {
+            $scope.pages[Math.floor(i / $scope.postsPerPage)].push($scope.posts.$getRecord($scope.posts.$keyAt(i)));
+        }
+        console.log("Pages size: " + $scope.pages.length);
+    }
+
+    $scope.getPostList = function () {
+        var posts = [];
+        var start = $scope.postsPerPage * $scope.selectedPage;
+        var end = $scope.postsPerPage + start;
+        if (end > $scope.postCount)
+            end = $scope.postCount;
+        for (var i = start; i < end; i++) {
+            posts.push($scope.posts.$getRecord($scope.posts.$keyAt(i)));
+        }
+        return posts;
+    }
+
+    var ref = new window.Firebase(baseUrl + "blog");
+    $scope.posts = $firebase(ref).$asArray();
+    $scope.posts.$loaded().then(function () {
+        $scope.postCount = $scope.posts.length;
+        $scope.selectedPage = 0;
+        $scope.postsPerPage = 3;
+        $scope.numPages = Math.ceil($scope.postCount / $scope.postsPerPage);
+        provisionPages();
+    });
+
+    $scope.setSelectedPage = function (index) {
+        if (index <= $scope.numPages - 1 && index > -1) {
+            $scope.selectedPage = index;
+        }
+    }
+
+    $scope.setPostsPerPage = function(count) {
+        if (count == 3 || count == 9 || count == 27) {
+            $scope.postsPerPage = count;
+            $scope.selectedPage = 0;
+            $scope.numPages = Math.ceil($scope.postCount / $scope.postsPerPage);
+            provisionPages();
+        }
+    }
+});
+
+function scrollToTop(window) {
+    window.scrollTo(0, 0);
+}
+
+/* google maps */
+function initialize() {
+    var varLocation = new window.google.maps.LatLng(42.9633333, -85.6680556);
+
+    var roadAtlasStyles = [{ "featureType": "administrative", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape", "stylers": [{ "visibility": "off" }] }, { "featureType": "road", "stylers": [{ "visibility": "simplified" }, { "color": "#102E14" }] }, { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "elementType": "labels.text", "stylers": [{ "visibility": "off" }] }, {}];
+
+    var varMapoptions = {
+        scrollwheel: true,
+        draggable: true,
+        center: varLocation,
+        disableDefaultUI: true,
+        zoom: 12
+    };
+
+    var varMap = new window.google.maps.Map(document.getElementById("map-container"), varMapoptions);
+
+    var styledMapOptions = {};
+
+    var usRoadMapType = new window.google.maps.StyledMapType(
+		roadAtlasStyles, styledMapOptions);
+
+    varMap.mapTypes.set('usroadatlas', usRoadMapType);
+    varMap.setMapTypeId('usroadatlas');
+
+    var mapText = document.createElement('button');
+    mapText.className = "btn btn-info btn-lg";
+    mapText.innerHTML = 'Located in West Michigan';
+    var mapTextA = document.createElement('a');
+    mapTextA.setAttribute('href', "contact.html");
+    mapTextA.setAttribute('target', "_self");
+    mapTextA.appendChild(mapText);
+    varMap.controls[window.google.maps.ControlPosition.BOTTOM_CENTER].push(mapTextA);
+}
+/* end google maps */
+
+/*
 app.controller('portfolioCtrl', function ($scope, $window, $location, contentFactory) {
     //init vars
     $scope.index = 0;
@@ -186,6 +313,36 @@ app.controller('contactCtrl', function($scope, $window, $location) {
     };
 });
 
+app.controller('testCtrl', function ($scope, $firebase) {
+    function authHandler(error) {
+        if (error) {
+            console.log("Login Failed!", error);
+        } else {
+            console.log("Authenticated successfully");
+            load();
+        }
+    }
+
+    var baseUrl = "https://timjaroch.firebaseio.com/";
+    var ref = new window.Firebase(baseUrl);
+    ref.authWithPassword({
+        email: "tim.jaroch@gmail.com",
+        password: "secret"
+    }, authHandler);
+
+    function load() {
+        console.log("now");
+        var newref = new window.Firebase(baseUrl + "sensitive");
+        $scope.types = $firebase(newref).$asArray();
+        $scope.types.$loaded().then(function () {
+            console.log($scope.types);
+        });
+    };
+
+
+
+});
+
 function scrollToTop(window) {
     window.scrollTo(0, 0);
-}
+}*/

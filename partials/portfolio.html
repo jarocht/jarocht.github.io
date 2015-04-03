@@ -1,0 +1,57 @@
+﻿<div>
+    <div class="container-fluid">
+        <div class="intro-header-other">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-6">
+                    <div class="intro-message">
+                        <h1 class="page-header">{{selected.title}}</h1>
+                        <h2>{{selected.subTitle}}</h2>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </div>
+    <!-- End Header -->
+    <!-- Portfolio Item -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <div class="img-container" ng-mouseenter="ShowImgNavArrows(true);" ng-mouseleave="ShowImgNavArrows(false)"></div>
+                    <img class="img-responsive" ng-src="{{getImageUrl()}}" alt="" />
+                    <i class="fa fa-arrow-circle-o-left fa-5x img-left-button colorScheme clickable beige" ng-click="previous()" ng-show="ShowImgLeftNavArrow"></i>
+                    <i class="fa fa-arrow-circle-o-right fa-5x img-right-button colorScheme clickable beige" ng-click="next()" ng-show="ShowImgRightNavArrow"></i>
+                
+            </div>
+            <div class="col-md-4">
+                <h3>Project Description</h3>
+                <p>{{selected.description}}</p>
+                <h3>Project Details</h3>
+                <ul>
+                    <li>Lorem Ipsum</li>
+                    <li>Dolor Sit Amet</li>
+                    <li>Consectetur</li>
+                    <li>Adipiscing Elit</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Portfolio Item -->
+    <!-- Related Projects Row -->
+    <div class="container-fluid related-row">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Related</h3>
+            </div>
+
+            <div class="col-sm-3 col-xs-6 img-container hover-pointer" ng-repeat="x in selected.related" ng-click="navTo(x)" ng-mouseenter="ShowRelatedImgText = true" ng-mouseleave="ShowRelatedImgText = false">
+                <img class="img-responsive" src="{{getRecord(x).image}}" alt=""/>
+                <h2 class="img-text colorScheme clickable whitesmoke" ng-show="ShowRelatedImgText">{{getRecord(x).title}}</h2>
+            </div>
+
+        </div>
+    </div>
+</div>
