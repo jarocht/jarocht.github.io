@@ -5,14 +5,12 @@ app.controller('aboutCtrl', function($scope) {
 });
 
 app.controller('contactCtrl', function ($scope, $location) {
-    $scope.contactImageUrl = 'img/headshot_round_color.png';
+    var colorImage = 'content/site/img/headshot_round_color.png';
+    var bwImage = 'content/site/img/headshot_round_bw.png';
+    $scope.contactImageUrl = colorImage;
 
     $scope.showAltContactImage = function (bool) {
-        if (bool)
-            $scope.contactImageUrl = 'img/headshot_round_bw.png';
-        else {
-            $scope.contactImageUrl = 'img/headshot_round_color.png';
-        }
+        $scope.contactImageUrl = bool ? bwImage : colorImage;
     };
     //load google map
     initialize();
