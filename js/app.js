@@ -16,14 +16,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "partials/contact.html",
             controller: "contactCtrl"
         })
-        .state("blogPost", {
-            url: "/BlogPost/{id}",
-            templateUrl: "partials/blogPost.html",
-            controller: "blogPostCtrl"
-        })
         .state("contentNavigator", {
             url: "/contentNavigator/{type}",
             templateUrl: "partials/contentNavigator.html",
             controller: "contentNavigatorCtrl"
+        })
+        .state("contentPost", {
+            url: "/posts/{type}/{id}",
+            templateUrl: "partials/contentPost.html",
+            controller: "contentPostCtrl"
         });
 });

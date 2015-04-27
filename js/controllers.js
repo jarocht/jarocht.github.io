@@ -16,8 +16,34 @@ app.controller('contactCtrl', function ($scope, $location) {
     initialize();
 });
 
-app.controller("blogPostCtrl", function ($scope, $firebase, $stateParams) {
+app.controller("contentPostCtrl", function ($scope, $firebaseObject, $stateParams, $state) {
     console.log($stateParams);
+
+    var post = undefined;
+    var content = undefined;
+
+    if ($stateParams.type == "portfolio" && $stateParams.id != "") {
+        post = new window.Firebase(baseUrl + "portfolio/posts/" + $stateParams.id);
+        content = new window.Firebase(baseUrl + "portfolio");
+    } else if ($stateParams.type == "blog" && $stateParams.id != "") {
+        post = new window.Firebase(baseUrl + "blog/posts/" + $stateParams.id);
+        content = new window.Firebase(baseUrl + "blog");
+    } else {
+        $state.go("about");
+        return;
+    }
+
+    content = $firebaseObject(content);
+    content.$loaded().then(function () {
+        $scope.title = content.title;
+        $scope.subTitle = content.subTitle;
+    });
+
+    post = $firebaseObject(post);
+    post.$loaded().then(function () {
+        $scope.post = post;
+    });
+
 });
 
 app.controller("contentNavigatorCtrl", function ($scope, $firebaseObject, $firebaseArray, $stateParams, $state) {
@@ -26,6 +52,7 @@ app.controller("contentNavigatorCtrl", function ($scope, $firebaseObject, $fireb
     var content = undefined;
     $scope.title = "Title Loading...";
     $scope.subTitle = "Subtitle Loading...";
+    $scope.type = $stateParams.type;
 
     if ($stateParams.type == "portfolio") {
         posts = new window.Firebase(baseUrl + "portfolio/posts");

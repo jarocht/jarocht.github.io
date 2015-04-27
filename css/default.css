@@ -166,6 +166,10 @@ p.copyright {
     cursor: pointer;
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 /* About Page */
 .about-intro-message > h1 {
     margin: 0;
@@ -221,4 +225,15 @@ my-email:before {
 
 .pagination-row {
     margin-bottom: 20px;
+}
+
+/* ContentNavigator */
+.img-text {
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: whitesmoke !important;
 }
