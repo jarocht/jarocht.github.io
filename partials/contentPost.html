@@ -21,13 +21,14 @@
             <div class="col-sm-8">
                 <div>
                     <h3>{{post.title}}</h3>
-                    <p>{{post.date}} by <a ng-bind-html="post.author"></a></p>
+                    <h4>{{post.subTitle}}</h4>
+                    <p>{{post.date}} by <a ng-href="{{authorUrl}}">{{post.author.name}}</a></p>
                     <div ng-bind-html="post.body"></div>
                 </div>
                 <nav>
                     <ul class="pager">
-                        <li><a class="hover-pointer" ng-click="previousPost()" ng-show="showPrevButton">Prev</a></li>
-                        <li><a class="hover-pointer" ng-click="nextPost()" ng-show="showNextButton">Next</a></li>
+                        <li><a class="hover-pointer" ng-click="previousPost()" ng-show="true">Prev</a></li>
+                        <li><a class="hover-pointer" ng-click="nextPost()" ng-show="true">Next</a></li>
                     </ul>
                 </nav>
             </div><!-- /.blog-main -->

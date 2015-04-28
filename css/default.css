@@ -166,10 +166,6 @@ p.copyright {
     cursor: pointer;
 }
 
-.clickable {
-    cursor: pointer;
-}
-
 /* About Page */
 .about-intro-message > h1 {
     margin: 0;

@@ -21,7 +21,7 @@
                     <div class="col-md-4 blog-item" ng-repeat="post in getPostList()">
                         <a ui-sref="contentPost({id: {{post.$id}}, type:'{{type}}' })">
                             <img class="img-responsive img-blog-item" ng-src="{{post.image}}" />
-                            <h3 class="img-text colorScheme clickable whitesmoke">{{post.title}}</h3>
+                            <h2 class="img-text colorScheme hover-pointer whitesmoke">{{post.title}}</h2>
                         </a>
                         <p>{{post.description}}</p>
                     </div>
