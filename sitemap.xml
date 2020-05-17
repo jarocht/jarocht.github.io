@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>timjaroch.com/about/</loc>
+    <lastmod>2020-05-17T16:57:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>timjaroch.com/</loc>
+    <lastmod>2020-05-17T16:57:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>timjaroch.com/tags/hello-world/</loc>
+    <lastmod>2020-05-17T10:17:18-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>timjaroch.com/posts/my-first-post/</loc>
+    <lastmod>2020-05-17T10:17:18-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>timjaroch.com/posts/</loc>
+    <lastmod>2020-05-17T10:17:18-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>timjaroch.com/tags/</loc>
+    <lastmod>2020-05-17T10:17:18-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>timjaroch.com/blog/</loc>
+  </url>
+  
+  <url>
+    <loc>timjaroch.com/series/</loc>
+  </url>
+  
+</urlset>

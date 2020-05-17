@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tim Jaroch</title>
+    <link>timjaroch.com/</link>
+    <description>Recent content on Tim Jaroch</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 17 May 2020 16:57:00 +0000</lastBuildDate>
+    
+	<atom:link href="timjaroch.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Me</title>
+      <link>timjaroch.com/about/</link>
+      <pubDate>Sun, 17 May 2020 16:57:00 +0000</pubDate>
+      
+      <guid>timjaroch.com/about/</guid>
+      <description>I am a self-starter, curious thinker, and strong leader with a history of solving unique challenges. I have a track record of success bringing new enterprise products to market with direct results in sales, enablement, product marketing, and engineering. As a seasoned engineer I now consult on best practices for performance engineering, people process improvement, and adoption of emergent technologies like IoT. Most recently I am focused on my team of leaders @ AppD and helping them influence at a global scale.</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>timjaroch.com/posts/my-first-post/</link>
+      <pubDate>Sun, 17 May 2020 10:17:18 -0400</pubDate>
+      
+      <guid>timjaroch.com/posts/my-first-post/</guid>
+      <description>This is the proverbial hello world as I learn Hugo. Welcome! Please feel free to check out the &amp;lsquo;About Me&amp;rsquo; page.</description>
+    </item>
+    
+  </channel>
+</rss>
